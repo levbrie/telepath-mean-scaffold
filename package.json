@@ -1,0 +1,27 @@
+{
+  "name": "mean-scaffold",
+  "version": "0.0.0",
+  "description": "MEAN Scaffold for eventually creating a substantial MEAN Yeoman generator.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "MEAN",
+    "angular",
+    "express",
+    "node",
+    "mongodb",
+    "mongo"
+  ],
+  "author": "Lev Brie",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.6.1",
+    "lodash": "^2.4.1",
+    "mongodb": "^1.4.7",
+    "mongoose": "^3.8.13",
+    "body-parser": "^1.5.0",
+    "method-override": "^2.1.2"
+  }
+}
