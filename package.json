@@ -2,9 +2,14 @@
   "name": "mean-scaffold",
   "version": "0.0.0",
   "description": "MEAN Scaffold for eventually creating a substantial MEAN Yeoman generator.",
-  "main": "index.js",
+  "main": "server.js",
+  "respository": "",
   "scripts": {
-    "test": "test"
+    "test": "grunt test"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.4.x"
   },
   "keywords": [
     "MEAN",
@@ -22,6 +27,12 @@
     "mongodb": "^1.4.7",
     "mongoose": "^3.8.13",
     "body-parser": "^1.5.0",
-    "method-override": "^2.1.2"
+    "method-override": "^2.1.2",
+    "morgan": "^1.2.0",
+    "dotenv": "^0.4.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-express-server": "^0.4.17"
   }
 }

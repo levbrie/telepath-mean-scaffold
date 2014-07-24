@@ -1,1 +1,10 @@
-node_modules/
+.idea
+node_modules
+info.md
+client/stylesheets/css
+client/stylesheets/.sass-cache
+client/bower_components/
+.env
+tmp
+tmpUploads
+coverage/
