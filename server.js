@@ -10,14 +10,8 @@ var app = express();
 var config = require('./server/config/config')[env];
 
 require('./server/config/express')(app, config, env);
-// require('./server/config/mongoose')(config);
-// require('./server/config/passport')();
+require('./server/config/mongoose')(config);
 require('./server/config/routes')(app);
-
-// sample route with a route the way we're used to seeing it
-app.get('/sample', function(req, res) {
-  res.send('this is a sample!');
-});
 
 app.listen(config.port);
 console.log('Listening on port ' + config.port + '...');

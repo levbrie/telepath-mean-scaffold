@@ -1,28 +1,44 @@
-var express  = require('express'),
+var express         = require('express'),
+    session         = require('express-session'),
     morgan          = require('morgan'),
     bodyParser      = require('body-parser'),
-    methodOverride  = require('method-override'); //,
-    // passport = require('passport');
+    methodOverride  = require('method-override'),
+    expressJwt      = require('express-jwt'),
+    jwt             = require('jsonwebtoken'),
+    passport        = require('passport');
 
 module.exports = function(app, config, env) {
   // setup static route handling
   // app.set('views', config.rootPath + '/public/app');
   // app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
-  app.use(express.static(config.rootPath + '/client'));   // set the static files location /public/img will be /img for users
+  app.use(express.static(config.rootPath + '/public'));   // set the static files location /public/img will be /img for users
   app.use(morgan('combined'));   // log every request to the console, I've also seen app.use(morgan('dev'));
-  app.use(bodyParser());         // pull information from html in POST
-  app.use(bodyParser.json());    // parse json
+
   // app.use(cookieParser());
   app.use(methodOverride());     // simulate DELETE and PUT
   // app.use(express.json());
+
+
+  // protect /api routes with JSON Web Token (Token-Based Auth using a
+  // claims-based approach between parties)
+  // not sure I can call use on the /api routes here like this
+  // last time we waited until we were in the routes, but maybe this just
+  // registers the middleware
+  // and this is where we implemented cookie-based auth before so...
+  app.use('/api', expressJwt({secret: process.env.APP_SECRET}));
+  app.use(bodyParser());         // pull information from html in POST
+  app.use(bodyParser.json());    // parse json
+  app.use(session({secret: process.env.APP_SECRET}))
   app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-form-urlencoded
+  app.use(passport.initialize());
+  // expressSession.session() must be called before passport.session()
+  app.use(passport.session());
   // app.use(expressSession({ secret: 'secreto secreto' }));  // secret for passport
 
 
 
-  // app.use(passport.initialize());
-  // app.use(passport.session());
+
 
   // if (env === 'development') {
   //   app.use(errorHandler());
