@@ -1,0 +1,19 @@
+{
+  "js": {
+    "public"  : [
+      "public/app/{,*//}*.js",
+      "public/app/*/*/*.js"
+    ],
+    "server"  : [
+      "server/{,*//}*.js",
+      "server/*/*/*.js",
+      "server.js"
+    ],
+    "test"    : [
+      "test/{,*//}*.js",
+      "test/*/*/*.js"
+    ]
+  },
+  "css": ["**/*.scss"],
+  "assets": ["public//images/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}"]
+}
