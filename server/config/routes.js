@@ -65,7 +65,7 @@ module.exports = function(app) {
   // i think the below is the express 4 way to do it though
   app.route('/*')
     .get(function(req, res) {
-      res.sendFile('./public/app/index.html');
+      res.sendfile('./public/app/index.html');
     });
 
 };
