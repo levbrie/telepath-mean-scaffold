@@ -5,18 +5,9 @@ module.exports = function(grunt) {
     files: grunt.file.readJSON('./grunt/files.json'),
     config: grunt.file.readJSON('./grunt/config.json'),
     watch: {
-      js: {
-        files: ["<%= files.js.public %>", "<%= files.js.server %>"],
-        tasks: ['default', 'uglify']
-      }
+      js: require('./grunt/watch/jsWatch')()
     },
-    uglify: {
-      dist:{
-        files:{
-          "dist/app.min.js":["<%= files.js.public %>"]
-        }
-      }
-    }
+    uglify: require('./grunt/uglifyTask')("<%= files.js.public %>")
   };
   grunt.initConfig(config);
   grunt.loadNpmTasks('grunt-contrib-watch');
