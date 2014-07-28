@@ -4,13 +4,13 @@
  */
 'use strict';
 
-var mongoose = require('mongoose');
-var passport = require('passport');
-var jwt = require('jsonwebtoken');
-var expressJwt = require('express-jwt');
-var compose = require('composable-middleware');
-var User = require('../api/user/user.model');
-var validateJwt = expressJwt({ secret: process.env.SESSION_SECRET });
+var mongoose    = require('mongoose'),
+    passport    = require('passport'),
+    jwt         = require('jsonwebtoken'),
+    expressJwt  = require('express-jwt'),
+    compose     = require('composable-middleware'),
+    User        = require('../api/user/user.model'),
+    validateJwt = expressJwt({ secret: process.env.SESSION_SECRET });
 
 /**
  * Attaches the user object to the request if authenticated

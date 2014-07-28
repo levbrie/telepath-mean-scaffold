@@ -27,9 +27,12 @@ module.exports = function(app, config, env) {
   // registers the middleware
   // and this is where we implemented cookie-based auth before so...
   app.use('/api', expressJwt({secret: process.env.APP_SECRET}));
-  app.use(bodyParser());         // pull information from html in POST
   app.use(bodyParser.json());    // parse json
-  app.use(session({secret: process.env.APP_SECRET}))
+  app.use(session({
+    secret: process.env.APP_SECRET,
+    saveUninitialized: true,
+    resave: true
+  }));
   app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-form-urlencoded
   app.use(passport.initialize());
   // expressSession.session() must be called before passport.session()
