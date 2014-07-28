@@ -1,9 +1,9 @@
 .idea
 node_modules
 info.md
-client/stylesheets/css
-client/stylesheets/.sass-cache
-client/bower_components/
+public/stylesheets/css
+public/stylesheets/.sass-cache
+public/bower_components/
 .env
 tmp
 tmpUploads
