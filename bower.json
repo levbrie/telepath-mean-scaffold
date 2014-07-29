@@ -1,0 +1,44 @@
+{
+  "name": "mean-scaffold",
+  "version": "0.0.0",
+  "authors": [
+    "Lev Brie <lev.brie@gmail.com>"
+  ],
+  "description": "MEAN-stack application for Leviathan Technology",
+  "moduleType": [
+    "node"
+  ],
+  "keywords": [
+    "angularjs",
+    "lodash",
+    "nodejs",
+    "expressjs",
+    "mongodb",
+    "bootstrap"
+  ],
+  "license": "MIT",
+  "homepage": "http://leviathante.ch",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap-sass-official": "~3.2.0+1",
+    "angular": "~1.2.21",
+    "angular-animate": "~1.2.21",
+    "angular-cookies": "~1.2.21",
+    "angular-mocks": "~1.2.21",
+    "angular-moment": "~0.8.0",
+    "angular-resource": "~1.2.21",
+    "angular-route": "~1.2.21",
+    "angular-sanitize": "~1.2.21",
+    "jquery": "~2.1.1",
+    "lodash": "~2.4.1",
+    "moment": "~2.7.0"
+  }
+}

@@ -106,6 +106,12 @@ Express.js uses the npm packages express-jwt and jsonwebtoken to implement the J
 
 ### We also need to figure out how auth will be handled for sockets with socket.io or WebSockets and the token-based approach seems to be the one used by Firebase.  [An article specific to socket.io token-based auth from the same author as above](https://auth0.com/blog/2014/01/15/auth-with-socket-io/).  Socket.io has a global authorization callback and there is an npm package integrating jwt (JSON Web Tokens) with it: [socketio-jwt](https://github.com/auth0/socketio-jwt)
 
+## GRUNT
+
+### grunt-express-server and custom wait task
+
+In order to ensure that the express server has time to reload on grunt watches where files change, a custom grunt wait task is registered with a set timeout so that the server has time to reload (without this, it fails to livereload in the browser).
+
 ### Implemented
 
 ### Roadmap

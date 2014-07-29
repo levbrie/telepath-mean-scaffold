@@ -9,3 +9,4 @@ tmp
 tmpUploads
 coverage/
 dist/
+CIRCLE_ARTIFACTS/
