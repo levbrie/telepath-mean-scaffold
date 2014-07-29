@@ -1,6 +1,8 @@
+'use strict';
+
 module.exports = function(grunt) {
   var justInTimeStaticMappings = { // for plugins that can't be resolved in auto mapping
-    // protractor: 'grunt-protractor-runner'
+    protractor: 'grunt-protractor-runner',
     express: 'grunt-express-server'
   };
   require('jit-grunt')(grunt, justInTimeStaticMappings);    // just-in-time plugin loader (no more loadNpmTasks)
@@ -16,16 +18,32 @@ module.exports = function(grunt) {
     watch: {
       js         :   require('./grunt/watch/jsWatch'),
       css        :   require('./grunt/watch/cssWatch'),
-      gruntfile  :   { files: ['Gruntfile.js'] }
+      jsTest     :   require('./grunt/watch/jsTest'),
+      livereload :   require('./grunt/watch/livereload'),
+      express    :   require('./grunt/watch/express'),
+      gruntfile  :   { files: ['Gruntfile.js'], tasks: ['default'] }
     },
-    uglify       : require('./grunt/uglifyTask')("<%= files.js.public %>")
+    jshint       : require('./grunt/jshintTask'),
+    uglify       : require('./grunt/uglifyTask')("<%= files.js.public %>"),
+    karma        : require('./grunt/karmaTask'),
+    protractor   : require('./grunt/protractorTask'),
   };
   grunt.initConfig(config);
-  grunt.registerTask('serve', function (target) {
+  grunt.registerTask('wait', function() {
+    grunt.log.ok('Waiting for server reload...');
+    var done = this.async();
+    setTimeout(function() {
+      grunt.log.writeln('Done waiting.');
+      done();
+    }, 500);
+  });
+  grunt.registerTask('server', function (target) {
     grunt.task.run(['express:dev', 'open', 'watch']);
   });
+  grunt.registerTask('test', ['karma']);
   grunt.registerTask('default', function() {
     grunt.log.writeln('Grunt grunt');
     grunt.log.writeln('Grunt Author: ' + grunt.config.get('pkg.author'));
+    grunt.task.run(['jshint', 'test', 'server']);
   });
 };

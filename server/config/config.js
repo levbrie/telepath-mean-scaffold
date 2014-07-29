@@ -16,5 +16,5 @@
       db: process.env.MONGOLAB_URL,
       port: process.env.PORT || 80
     }
-  }
+  };
 }());
