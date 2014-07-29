@@ -1,5 +1,6 @@
 module.exports = function(grunt) {
   require('jit-grunt')(grunt);    // just-in-time plugin loader (no more loadNpmTasks)
+  require('time-grunt')(grunt);
   var config = {
     pkg:      require('./package.json'),
     env:      process.env,
