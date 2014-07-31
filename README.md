@@ -151,7 +151,7 @@ In order to ensure that the express server has time to reload on grunt watches w
 * grunt-nodemon
 * grunt-angular-templater
 * grunt-dom-munger
-* grunt-asset-injector
+* [grunt-injector](https://github.com/klei/grunt-injector)
 * grunt-mocha-test
 * grunt-contrib-sass
 * jit-grunt

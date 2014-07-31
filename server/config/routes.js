@@ -62,6 +62,19 @@ module.exports = function(app) {
   //   res.sendfile('./public/app/index.html');
   // });
 
+  app.route('/partials/*')
+    .get(function (req, res) {
+      var requestedView = req.params;
+      res.render('../../public/app/' + requestedView, function(err, html) {
+        if(err) {
+          console.error('Error rendering partial ' + requestedView + '\n', err);
+          res.status(404);
+          res.send(404);
+        } else {
+          res.send(html);
+        }
+      });
+    });
   // i think the below is the express 4 way to do it though
   app.route('/*')
     .get(function(req, res) {
