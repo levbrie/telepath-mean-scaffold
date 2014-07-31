@@ -18,7 +18,7 @@
       dependencies: true,
       devDependencies: true,
       exclude: [ /bootstrap-sass-official/, /bootstrap.js/,
-        '/json3/', '/es5-shim/', /bootstrap.css/, /font-awesome.css/
+        /json3/, /es5-shim/, /bootstrap.css/, /font-awesome.css/
       ]
       // fileTypes: {},
       // ignorePath: '',

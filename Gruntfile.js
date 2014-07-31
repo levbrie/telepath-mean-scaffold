@@ -27,7 +27,8 @@ module.exports = function(grunt) {
     uglify       : require('./grunt/uglifyTask')("<%= files.js.public %>"),
     karma        : require('./grunt/karmaTask'),
     protractor   : require('./grunt/protractorTask'),
-    wiredep      : require('./grunt/wiredep')
+    wiredep      : require('./grunt/wiredep'),
+    injector     : require('./grunt/injector')
   };
   grunt.initConfig(config);
   grunt.registerTask('wait', function() {
@@ -45,6 +46,6 @@ module.exports = function(grunt) {
   grunt.registerTask('default', function() {
     grunt.log.writeln('Grunt grunt');
     grunt.log.writeln('Grunt Author: ' + grunt.config.get('pkg.author'));
-    grunt.task.run(['jshint', 'test', 'wiredep', 'server']);
+    grunt.task.run(['jshint', 'test', 'wiredep', 'injector', 'server']);
   });
 };

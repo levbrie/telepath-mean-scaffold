@@ -68,6 +68,7 @@
     "karma-phantomjs-launcher": "^0.1.4",
     "mocha": "^1.21.3",
     "protractor": "^1.0.0",
-    "time-grunt": "^0.4.0"
+    "time-grunt": "^0.4.0",
+    "grunt-injector": "^0.5.4"
   }
 }
