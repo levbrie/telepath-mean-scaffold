@@ -1,6 +1,6 @@
 // send partial (or 404 if it doesn't exist)
 module.exports.viewPartials = function(req, res) {
-  var requestedView = req.params;
+  var requestedView = req.params[0];
   res.render('../../public/app/' + requestedView, function(err, html) {
     if(err) {
       console.log('Error rendering partial ' + requestedView + '\n', err);

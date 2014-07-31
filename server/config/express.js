@@ -1,5 +1,6 @@
 var express         = require('express'),
     session         = require('express-session'),
+    ejs             = require('ejs'),
     morgan          = require('morgan'),
     bodyParser      = require('body-parser'),
     methodOverride  = require('method-override'),
@@ -9,15 +10,14 @@ var express         = require('express'),
 
 module.exports = function(app, config, env) {
   // setup static route handling
-  // app.set('views', config.rootPath + '/public/app');
-  // app.engine('html', require('ejs').renderFile);
+  app.set('views', config.rootPath + '/public/app');
+  app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
   app.use(express.static(config.rootPath + '/public'));   // set the static files location /public/img will be /img for users
   app.use(morgan('combined'));   // log every request to the console, I've also seen app.use(morgan('dev'));
 
   // app.use(cookieParser());
   app.use(methodOverride());     // simulate DELETE and PUT
-  // app.use(express.json());
 
 
   // protect /api routes with JSON Web Token (Token-Based Auth using a

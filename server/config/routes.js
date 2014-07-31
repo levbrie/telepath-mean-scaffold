@@ -5,7 +5,7 @@
     // mailboxes =     require('../controllers/mailboxes'),
 var mongoose =      require('mongoose'),
     User =          mongoose.model('User'),
-    clientViews =         require('./routes/clientViews');  // for view partial routing
+    clientViews =   require('./routes/clientViews');  // for view partial routing
 
 
 module.exports = function(app) {
@@ -56,26 +56,9 @@ module.exports = function(app) {
 
   app.use('/auth', require('../auth/passport'));
 
-  // alternatively could use clientViews.viewIndex
-  // or this:
-  // app.get('*', function(req, res) {
-  //   res.sendfile('./public/app/index.html');
-  // });
-
   app.route('/partials/*')
-    .get(function (req, res) {
-      var requestedView = req.params;
-      res.render('../../public/app/' + requestedView, function(err, html) {
-        if(err) {
-          console.error('Error rendering partial ' + requestedView + '\n', err);
-          res.status(404);
-          res.send(404);
-        } else {
-          res.send(html);
-        }
-      });
-    });
-  // i think the below is the express 4 way to do it though
+    .get(clientViews.viewPartials);
+  // i think the below is the express 4 way to do it
   app.route('/*')
     .get(function(req, res) {
       res.sendfile('./public/app/index.html');
