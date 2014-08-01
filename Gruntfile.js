@@ -39,14 +39,13 @@ module.exports = function(grunt) {
       done();
     }, 500);
   });
-  grunt.registerTask('server', function (target) {
+  grunt.registerTask('serve', function (target) {
     grunt.task.run(['express:dev', 'open', 'watch']);
   });
   grunt.registerTask('inject', ['wiredep', 'injector']);
   grunt.registerTask('test', ['karma']);
   grunt.registerTask('default', function() {
-    grunt.log.writeln('Grunt grunt');
     grunt.log.writeln('Grunt Author: ' + grunt.config.get('pkg.author'));
-    grunt.task.run(['jshint', 'test', 'wiredep', 'injector', 'server']);
+    grunt.task.run(['wiredep', 'injector', 'jshint', 'test', 'serve']);
   });
 };

@@ -1,8 +1,61 @@
+<!--<div class="bs-docs-example">-->
+  <!--<div class="navbar">-->
+    <!--<div class="navbar-inner">-->
+      <!--<div class="container">-->
+        <!--&lt;!&ndash; Note: set the initial collapsed state and change it when clicking &ndash;&gt;-->
+        <!--<a ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="btn btn-navbar">-->
+          <!--<span class="icon-bar"></span>-->
+          <!--<span class="icon-bar"></span>-->
+          <!--<span class="icon-bar"></span>-->
+        <!--</a>-->
+        <!--<a class="brand" href="#">Title</a>-->
+        <!--&lt;!&ndash; Note: use "collapse" here. The original "data-" settings are not needed anymore. &ndash;&gt;-->
+        <!--<div collapse="navCollapsed" class="nav-collapse collapse navbar-responsive-collapse">-->
+          <!--<ul class="nav">-->
+            <!--<li class="active"><a href="#">Home</a></li>-->
+            <!--<li><a href="#">Link</a></li>-->
+            <!--<li><a href="#">Link</a></li>-->
+            <!--<li class="dropdown">-->
+              <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>-->
+              <!--<ul class="dropdown-menu">-->
+                <!--<li><a href="#">Action</a></li>-->
+                <!--<li><a href="#">Another action</a></li>-->
+                <!--<li><a href="#">Something else here</a></li>-->
+                <!--<li class="divider"></li>-->
+                <!--<li class="nav-header">Nav header</li>-->
+                <!--<li><a href="#">Separated link</a></li>-->
+                <!--<li><a href="#">One more separated link</a></li>-->
+              <!--</ul>-->
+            <!--</li>-->
+          <!--</ul>-->
+          <!--<form class="navbar-search pull-left" action="">-->
+            <!--<input type="text" class="search-query span2" placeholder="Search">-->
+          <!--</form>-->
+          <!--<ul class="nav pull-right">-->
+            <!--<li><a href="#">Link</a></li>-->
+            <!--<li class="divider-vertical"></li>-->
+            <!--<li class="dropdown">-->
+              <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>-->
+              <!--<ul class="dropdown-menu">-->
+                <!--<li><a href="#">Action</a></li>-->
+                <!--<li><a href="#">Another action</a></li>-->
+                <!--<li><a href="#">Something else here</a></li>-->
+                <!--<li class="divider"></li>-->
+                <!--<li><a href="#">Separated link</a></li>-->
+              <!--</ul>-->
+            <!--</li>-->
+          <!--</ul>-->
+        <!--</div>&lt;!&ndash; /.nav-collapse &ndash;&gt;-->
+      <!--</div> &lt;!&ndash; /.container &ndash;&gt;-->
+    <!--</div>&lt;!&ndash; /navbar-inner &ndash;&gt;-->
+  <!--</div>&lt;!&ndash; /navbar &ndash;&gt;-->
+<!--</div> &lt;!&ndash; /bs-docs-example &ndash;&gt;-->
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+      <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">-->
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -12,7 +65,8 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <!--class="nav-collapse collapse navbar-responsive-collapse">-->
+    <div collapse="navCollapsed" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Link</a></li>
         <li><a href="#">Link</a></li>
