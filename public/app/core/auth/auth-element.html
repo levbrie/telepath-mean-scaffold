@@ -1,0 +1,17 @@
+<ul class="nav navbar-nav navbar-right" ng-controller="lvLoginModalCtrl">
+  <li><a href class="" ng-click="open()" ng-hide="identity.isAuthenticated()">Login</a></li>
+  <li ng-hide="identity.isAuthenticated()"><a href>or</a></li>
+  <li><a ng-click="apply()" ng-hide="identity.isAuthenticated()">Apply</a></li>
+  <li on-toggle="toggled(open)" class="dropdown" ng-show="identity.isAuthenticated()">
+    <a href="href" class="dropdown-toggle">{{identity.currentUser.firstName}} {{identity.currentUser.lastName}}<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <li ng-show="identity.currentUser.isAdmin()"><a href="/admin/users">Admin</a></li>
+      <li><a href="/brand/dashboard" ng-show="identity.isAuthorizedAs('recruiter')">Dashboard</a></li>
+      <li><a href="/talent/dashboard" ng-show="identity.isAuthorizedAs('talent')">Dashboard</a></li>
+      <li><a href="/mailboxes/{{identity.currentUser._mailboxId}}">Messages</a></li>
+      <li><a href="/account">Account</a></li>
+      <li><a href="" ng-click="signout()">Sign Out</a></li>
+    </ul>
+  </li>
+  <li ng-show="selected">Selection from a modal: {{ selected }} {{emailset}}</li>
+</ul>
