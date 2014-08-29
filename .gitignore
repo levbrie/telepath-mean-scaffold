@@ -1,5 +1,6 @@
 .idea
 node_modules
+bower_components/
 info.md
 public/stylesheets/css
 public/stylesheets/.sass-cache
@@ -9,4 +10,5 @@ tmp
 tmpUploads
 coverage/
 dist/
+gen/
 CIRCLE_ARTIFACTS/
