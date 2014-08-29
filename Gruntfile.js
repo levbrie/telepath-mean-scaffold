@@ -44,6 +44,9 @@ module.exports = function(grunt) {
   });
   grunt.registerTask('inject', ['wiredep', 'injector']);
   grunt.registerTask('test', ['karma']);
+  grunt.registerTask('reload', function() {
+    grunt.task.run(['wiredep', 'injector', 'jshint', 'test']);
+  });
   grunt.registerTask('default', function() {
     grunt.log.writeln('Grunt Author: ' + grunt.config.get('pkg.author'));
     grunt.task.run(['wiredep', 'injector', 'jshint', 'test', 'serve']);

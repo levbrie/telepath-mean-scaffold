@@ -1,41 +1,45 @@
 angular.module('app.core')
-  .controller('LoginCtrl', function($scope, $alert, $auth) {
+  .controller('LoginCtrl', function($scope, $auth) {
     $scope.login = function() {
       $auth.login({ email: $scope.email, password: $scope.password })
         .then(function() {
-          $alert({
-            content: 'You have successfully logged in',
-            animation: 'fadeZoomFadeDown',
-            type: 'material',
-            duration: 3
-          });
+          console.log('you have logged in');
+//          $alert({
+//            content: 'You have successfully logged in',
+//            animation: 'fadeZoomFadeDown',
+//            type: 'material',
+//            duration: 3
+//          });
         })
         .catch(function(response) {
-          $alert({
-            content: response.data.message,
-            animation: 'fadeZoomFadeDown',
-            type: 'material',
-            duration: 3
-          });
+          console.log(response.data.message);
+//          $alert({
+//            content: response.data.message,
+//            animation: 'fadeZoomFadeDown',
+//            type: 'material',
+//            duration: 3
+//          });
         });
     };
     $scope.authenticate = function(provider) {
       $auth.authenticate(provider)
         .then(function() {
-          $alert({
-            content: 'You have successfully logged in',
-            animation: 'fadeZoomFadeDown',
-            type: 'material',
-            duration: 3
-          });
+          console.log('you have successfully logged in ');
+//          $alert({
+//            content: 'You have successfully logged in',
+//            animation: 'fadeZoomFadeDown',
+//            type: 'material',
+//            duration: 3
+//          });
         })
         .catch(function(response) {
-          $alert({
-            content: response.data,
-            animation: 'fadeZoomFadeDown',
-            type: 'material',
-            duration: 3
-          });
+          console.log(response.data);
+//          $alert({
+//            content: response.data,
+//            animation: 'fadeZoomFadeDown',
+//            type: 'material',
+//            duration: 3
+//          });
         });
     };
   });

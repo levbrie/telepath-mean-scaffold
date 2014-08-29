@@ -1,5 +1,5 @@
 angular.module('app.core')
-  .controller('ProfileCtrl', function($scope, $auth, $alert, Account) {
+  .controller('ProfileCtrl', function($scope, $auth, Account) {
 
     /**
      * Get user's profile information.
@@ -9,12 +9,13 @@ angular.module('app.core')
         $scope.user = data;
       })
       .error(function() {
-        $alert({
-          content: 'Unable to get user information',
-          animation: 'fadeZoomFadeDown',
-          type: 'material',
-          duration: 3
-        });
+        console.log('unable to get user info');
+//        $alert({
+//          content: 'Unable to get user information',
+//          animation: 'fadeZoomFadeDown',
+//          type: 'material',
+//          duration: 3
+//        });
       });
 
 
@@ -26,12 +27,13 @@ angular.module('app.core')
         displayName: $scope.user.displayName,
         email: $scope.user.email
       }).then(function() {
-        $alert({
-          content: 'Profile has been updated',
-          animation: 'fadeZoomFadeDown',
-          type: 'material',
-          duration: 3
-        });
+        console.log('Profile updated');
+//        $alert({
+//          content: 'Profile has been updated',
+//          animation: 'fadeZoomFadeDown',
+//          type: 'material',
+//          duration: 3
+//        });
       });
     };
 
@@ -64,20 +66,22 @@ angular.module('app.core')
     $scope.unlink = function(provider) {
       $auth.unlink(provider)
         .then(function() {
-          $alert({
-            content: 'You have successfully unlinked ' + provider + ' account',
-            animation: 'fadeZoomFadeDown',
-            type: 'material',
-            duration: 3
-          });
+          console.log('You have successfully unlinked ' + provider + ' account');
+//          $alert({
+//            content: 'You have successfully unlinked ' + provider + ' account',
+//            animation: 'fadeZoomFadeDown',
+//            type: 'material',
+//            duration: 3
+//          });
         })
         .catch(function() {
-          $alert({
-            content: 'Could not unlink ' + provider + ' account',
-            animation: 'fadeZoomFadeDown',
-            type: 'material',
-            duration: 3
-          });
+          console.log('could not unlink ' + provider + ' account');
+//          $alert({
+//            content: 'Could not unlink ' + provider + ' account',
+//            animation: 'fadeZoomFadeDown',
+//            type: 'material',
+//            duration: 3
+//          });
         });
     };
   });

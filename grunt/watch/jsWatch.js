@@ -6,5 +6,5 @@ console.log('public');
 module.exports = {
   files: [projectFiles.js.public, projectFiles.js.server],
   // files: ["<%= files.js.public %>", "<%= files.js.server %>"],
-  tasks: ['default', 'uglify']
+  tasks: ['reload', 'uglify']
 };
