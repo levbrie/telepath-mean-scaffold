@@ -30,6 +30,7 @@
 
   <section class="content">
     This is the content
+    <div ng-view id="content" class="animate-fade-up"></div>
   </section>
   <footer class="container-fluid text-center">
     &copy: 2014 This is the footer
@@ -63,22 +64,26 @@
   <script src="../bower_components/angular-route/angular-route.js"></script>
   <script src="../bower_components/angular-sanitize/angular-sanitize.js"></script>
   <script src="../bower_components/lodash/dist/lodash.compat.js"></script>
+  <script src="../bower_components/satellizer/satellizer.js"></script>
   <!-- endbower -->
 
   <!-- injector:js -->
   <script src="app/app.js"></script>
+  <script src="app/config.js"></script>
   <script src="app/core/app.core.js"></script>
-  <script src="app/core/auth/AuthCtrl.js"></script>
-  <script src="app/core/auth/AuthInterceptor.js"></script>
-  <script src="app/core/auth/AuthService.js"></script>
-  <script src="app/core/auth/IdentityService.js"></script>
-  <script src="app/core/auth/lvAuthElement.js"></script>
+  <script src="app/core/auth/LoginCtrl.js"></script>
+  <script src="app/core/auth/LogoutCtrl.js"></script>
+  <script src="app/core/auth/SignupCtrl.js"></script>
+  <script src="app/core/auth/passwordStrength.js"></script>
+  <script src="app/core/config.js"></script>
   <script src="app/core/nav/lvNavMenu.js"></script>
   <script src="app/core/nav/lvNavbar.js"></script>
   <script src="app/core/search/SearchCtrl.js"></script>
   <script src="app/core/search/SearchService.js"></script>
   <script src="app/core/search/WebSuggestService.js"></script>
   <script src="app/core/search/lvSearchBar.js"></script>
+  <script src="app/core/user/AccountService.js"></script>
+  <script src="app/core/user/ProfileCtrl.js"></script>
   <script src="app/core/user/User.js"></script>
   <!-- endinjector -->
 </body>
