@@ -26,7 +26,7 @@ module.exports = function(app, config, env) {
   // last time we waited until we were in the routes, but maybe this just
   // registers the middleware
   // and this is where we implemented cookie-based auth before so...
-  app.use('/api', expressJwt({secret: process.env.APP_SECRET}));
+//  app.use('/api', expressJwt({secret: process.env.APP_SECRET}));
   app.use(bodyParser.json());    // parse json
   app.use(session({
     secret: process.env.APP_SECRET,

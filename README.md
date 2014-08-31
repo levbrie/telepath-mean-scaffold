@@ -160,3 +160,56 @@ In order to ensure that the express server has time to reload on grunt watches w
 * supertest
 * should
 * [grunt-sassdoc](https://github.com/SassDoc/grunt-sassdoc)
+
+
+##AUTHORIZATION
+
+The authorization strategy is token-based, relying on *Token-Based Authentication* with
+[JSON Web Tokens](https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/), and handled by the [satellizer module](https://github.com/sahat/satellizer/).
+
+Authentication is carried out inside the core under the auth directory. Similarly, on the server side, there is an auth directory in which most of the necessary server-side functionality is implemented, although some of the functionality is handled in the api/user directory, since it is specific to the user.
+
+Additional info can be found here:
+##### [★ Login with OAuth 2.0](https://github.com/sahat/satellizer/wiki/Login-with-OAuth-2.0)
+##### [★ Login with OAuth 1.0](https://github.com/sahat/satellizer/wiki/Login-with-OAuth-1.0)
+##### [★ Login with Email and Password](https://github.com/sahat/satellizer/wiki/Login-with-Email-and-Password)
+##### [★ Signup](https://github.com/sahat/satellizer/wiki/Signup)
+##### [★ Logout](https://github.com/sahat/satellizer/wiki/Logout)
+
+## Obtaining OAuth Keys
+
+<img src="http://images.google.com/intl/en_ALL/images/srpr/logo6w.png" width="150">
+- Visit [Google Cloud Console](https://cloud.google.com/console/project)
+- Click **CREATE PROJECT** button
+- Enter *Project Name*, then click **CREATE**
+- Then select *APIs & auth* from the sidebar and click on *Credentials* tab
+- Click **CREATE NEW CLIENT ID** button
+ - **Application Type**: Web Application
+ - **Authorized Javascript origins**: *http://localhost:3000*
+ - **Authorized redirect URI**: *http://localhost:3000*
+
+**:exclamation: Note:** Make sure you have turned on **Contacts API** and 
+**Google+ API** in the *APIs* tab.
+
+<hr>
+
+<img src="http://www.doit.ba/img/facebook.jpg" width="150">
+- Visit [Facebook Developers](https://developers.facebook.com/)
+- Click **Apps > Create a New App** in the navigation bar
+- Enter *Display Name*, then choose a category, then click **Create app**
+- Click on *Settings* on the sidebar, then click **+ Add Platform**
+- Select **Website**
+- Enter *http://localhost:3000* for *Site URL*
+
+<hr>
+
+<img src="http://indonesia-royal.com/wp-content/uploads/2014/06/twitter-bird-square-logo.jpg" height="70">
+- Sign in at [https://dev.twitter.com](https://dev.twitter.com/)
+- From the profile picture dropdown menu select **My Applications**
+- Click **Create a new application**
+- Enter your application name, website and description
+- For **Callback URL**: *http://127.0.0.1:3000*
+- Go to **Settings** tab
+- Under *Application Type* select **Read and Write** access
+- Check the box **Allow this application to be used to Sign in with Twitter**
+- Click **Update this Twitter's applications settings**

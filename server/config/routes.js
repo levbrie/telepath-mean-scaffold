@@ -5,7 +5,8 @@
     // mailboxes =     require('../controllers/mailboxes'),
 var mongoose =      require('mongoose'),
     User =          mongoose.model('User'),
-    clientViews =   require('./routes/clientViews');  // for view partial routing
+    clientViews =   require('./routes/clientViews'),
+    errors =        require('../utilities/errors');  // for view partial routing
 
 
 module.exports = function(app) {
@@ -50,15 +51,21 @@ module.exports = function(app) {
       res.send('processing post to hello');
     });
 
-  app.all('/api/*', function(req, res) {
-    res.send(404);
-  });
+  app.use('/api/users', require('../api/user'));
+  app.use('/auth', require('../auth'));
 
-  app.use('/auth', require('../auth/passport'));
+//  app.all('/api/*', function(req, res) {
+//    res.send(404);
+//  });
 
   app.route('/partials/*')
     .get(clientViews.viewPartials);
   // i think the below is the express 4 way to do it
+
+  // All undefined asset or api routes should return a 404
+  app.route('/:url(api|auth|components|app|bower_components|assets)/*')
+    .get(errors[404]);
+
   app.route('/*')
     .get(function(req, res) {
       res.sendfile('./public/app/index.html');

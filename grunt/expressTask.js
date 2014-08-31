@@ -2,7 +2,7 @@
   'use strict';
   module.exports = {
     options: {
-      port: process.env.PORT || 3030
+      port: process.env.PORT || 3000
     },
     dev: {
       options: {

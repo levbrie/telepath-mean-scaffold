@@ -32,11 +32,11 @@
       });
 
     $authProvider.facebook({
-      clientId: '657854390977827'
+      clientId: '689050897814697'
     });
 
     $authProvider.google({
-      clientId: '631036554609-v5hm2amv4pvico3asfi97f54sc51ji4o.apps.googleusercontent.com'
+      clientId: '155132075923-u7kk1hoe82hgb9aha1esr8g0ujnopl6o.apps.googleusercontent.com'
     });
 
     $authProvider.github({

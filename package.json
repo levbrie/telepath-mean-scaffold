@@ -42,7 +42,11 @@
     "express-session": "^1.7.2",
     "composable-middleware": "^0.3.0",
     "grunt": "^0.4.5",
-    "ejs": "^1.0.0"
+    "ejs": "^1.0.0",
+    "jwt-simple": "^0.2.0",
+    "bcryptjs": "^2.0.2",
+    "moment": "^2.8.2",
+    "request": "^2.40.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",
