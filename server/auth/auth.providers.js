@@ -35,7 +35,8 @@
 
       // Step 2. Retrieve profile information about the current user.
       request.get({ url: peopleApiUrl, headers: headers, json: true }, function(err, response, profile) {
-
+        console.log('logging profile');
+        console.log(profile);
         // Step 3a. If user is already signed in then link accounts.
         if (req.headers.authorization) {
           User.findOne({ 'google.sub': profile.sub }, function(err, existingUser) {
@@ -72,6 +73,10 @@
             console.log(user.google);
             user.displayName = profile.name;
             user.save(function(err) {
+              if (err) {
+                console.log('error trying to save google account');
+                console.log(err);
+              }
               res.send({ token: authService.createToken(req, user) });
             });
           });

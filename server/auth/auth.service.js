@@ -50,13 +50,21 @@
   }
 
   function login(req, res) {
-    User.findOne({ email: req.body.email }, '+password', function(err, user) {
+    User.findOne({ email: req.body.email }, function(err, user) {
+      if (err) {
+        console.log('error finding user');
+        console.log(err);
+      }
       if (!user) {
+        console.log('could not find user');
         return res.status(401).send({ message: 'Wrong email and/or password' });
       }
+      console.log(user);
 
       user.comparePassword(req.body.password, function(err, isMatch) {
         if (!isMatch) {
+          console.log(req.body.password);
+          console.log('password does not match user');
           return res.status(401).send({ message: 'Wrong email and/or password' });
         }
         res.send({ token: createToken(req, user) });
@@ -66,10 +74,17 @@
 
   function signup(req, res) {
     var user = new User();
+    var name = req.body.displayName.split(' ');
+    console.log(name);
     user.displayName = req.body.displayName;
+    user.firstName = name[0];
+    user.lastName = name[1];
     user.email = req.body.email;
     user.password = req.body.password;
     user.save(function(err) {
+      if (err) {
+        console.log(err);
+      }
       res.status(200).end();
     });
   }

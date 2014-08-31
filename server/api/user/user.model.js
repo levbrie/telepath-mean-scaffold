@@ -18,7 +18,7 @@
     role:           {type:String, required:'{PATH} is required!', default: 'user'},
     firstName:      {type:String, required:'{PATH} is required!'},
     lastName:       {type:String, required:'{PATH} is required!'},
-    provider:       {type:String, required:'{PATH} is required!'},
+    provider:       String,
     displayName:    String,
     facebook:       {},
     github:         {},
@@ -41,7 +41,16 @@
 
   userSchema.methods = {
     comparePassword: function(passwordToMatch, done) {
+      console.log('comparing password');
+      console.log(passwordToMatch);
       bcrypt.compare(passwordToMatch, this.password, function(err, isMatch) {
+        if (err) {
+          console.log('some error matching password');
+          console.log(err);
+        } else {
+          console.log('no error matching password');
+          console.log(isMatch);
+        }
         done(err, isMatch);
       });
     }
