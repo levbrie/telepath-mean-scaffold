@@ -38,7 +38,7 @@
 
         // Step 3a. If user is already signed in then link accounts.
         if (req.headers.authorization) {
-          User.findOne({ google: profile.sub }, function(err, existingUser) {
+          User.findOne({ 'google.sub': profile.sub }, function(err, existingUser) {
             if (existingUser) {
               return res.status(409).send({ message: 'There is already a Google account that belongs to you' });
             }
@@ -50,7 +50,9 @@
               if (!user) {
                 return res.status(400).send({ message: 'User not found' });
               }
-              user.google = profile.sub;
+              user.google = profile;
+              console.log('setting user google profile');
+              console.log(user.google);
               user.displayName = user.displayName || profile.name;
               user.save(function(err) {
                 res.send({ token: createToken(req, user) });
@@ -59,13 +61,15 @@
           });
         } else {
           // Step 3b. Create a new user account or return an existing one.
-          User.findOne({ google: profile.sub }, function(err, existingUser) {
+          User.findOne({ 'google.sub': profile.sub }, function(err, existingUser) {
             if (existingUser) {
               return res.send({ token: createToken(req, existingUser) });
             }
 
             var user = new User();
-            user.google = profile.sub;
+            user.google = profile;
+            console.log('creating user in else statement');
+            console.log(user.google);
             user.displayName = profile.name;
             user.save(function(err) {
               res.send({ token: authService.createToken(req, user) });
