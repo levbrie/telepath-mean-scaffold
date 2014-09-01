@@ -31,6 +31,9 @@
     var token = req.headers.authorization.split(' ')[1],
         payload = jwt.decode(token, TOKEN_SECRET);
 
+    console.log('payload');
+    console.log(payload);
+
     if (payload.exp <= Date.now()) {
       return res.status(401).send({message: 'Token has expired'});
     }

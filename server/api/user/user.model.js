@@ -12,9 +12,10 @@
 
   var userSchema = mongoose.Schema({
     email:          {type:String, required:'{PATH} is required!', unique:true},
+    emailVerified:  {type:Boolean, default: false},
 //    salt:           {type:String, required:'{PATH} is required!'},
 //    hashedPassword: {type:String, required:'{PATH} is required!'},
-    password:       {type:String, required:'{PATH} is required!'},
+    password:       String,
     role:           {type:String, required:'{PATH} is required!', default: 'user'},
     firstName:      {type:String, required:'{PATH} is required!'},
     lastName:       {type:String, required:'{PATH} is required!'},

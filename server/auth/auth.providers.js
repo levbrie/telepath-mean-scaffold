@@ -64,21 +64,41 @@
           // Step 3b. Create a new user account or return an existing one.
           User.findOne({ 'google.sub': profile.sub }, function(err, existingUser) {
             if (existingUser) {
-              return res.send({ token: createToken(req, existingUser) });
+              return res.send({ token: authService.createToken(req, existingUser) });
             }
+            User.findOne({email: profile.email}, function(err, userWithEmail) {
+              if (userWithEmail) {
+                userWithEmail.google = profile;
+                userWithEmail.provider = 'google';
+                userWithEmail.save(function(err) {
+                  if (err) {
+                    console.log('error trying to add google account to existing user');
+                    console.log(err);
+                  }
+                  return res.send({ token: authService.createToken(req, userWithEmail) });
+                });
+              } else {
 
-            var user = new User();
-            user.google = profile;
-            console.log('creating user in else statement');
-            console.log(user.google);
-            user.displayName = profile.name;
-            user.save(function(err) {
-              if (err) {
-                console.log('error trying to save google account');
-                console.log(err);
+                var user = new User();
+                user.google = profile;
+                user.firstName = profile.given_name;
+                user.lastName = profile.family_name;
+                user.email = profile.email;
+                user.provider = 'google';
+                console.log('creating user in else statement');
+                console.log(user.google);
+                user.displayName = profile.name;
+                user.save(function (err) {
+                  if (err) {
+                    console.log('error trying to save google account');
+                    console.log(err);
+                  }
+                  res.send({ token: authService.createToken(req, user) });
+                });
+
               }
-              res.send({ token: authService.createToken(req, user) });
             });
+
           });
         }
       });
