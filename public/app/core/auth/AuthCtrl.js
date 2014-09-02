@@ -7,25 +7,15 @@
       return $auth.isAuthenticated();
     };
 
-    if ($auth.isAuthenticated()) {
-      var userPromise = IdentityService.getCurrentUser();
-      $log.info(userPromise);
-      userPromise.then(function(data) {
-        $scope.currentUser = data;
-        $log.info('current user set in AuthCtrl');
-        $log.info(data);
-        $log.info('identity service current user is:');
-        $log.info(IdentityService.currentUser());
-        $log.info($scope.identity.currentUser());
-      });
-    } else {
-      $scope.currentUser = {};
-    }
-
     $scope.identity = IdentityService;
 
     $scope.displaySignup = function() {
-
+      ngDialog.open({
+        template: '/partials/core/auth/signup.html',
+        className: 'ngdialog-theme-lv',
+        controller: 'SignupCtrl',
+        scope: $scope
+      });
     };
 
     $scope.displayLogin = function() {
@@ -37,7 +27,7 @@
       });
     };
 
-    $scope.signout = function() {
+    $scope.logout = function() {
       $auth.logout()
         .then(function() {
           IdentityService.logoutCurrentUser();

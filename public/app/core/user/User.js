@@ -20,6 +20,12 @@
       },
       update: function() {
         $http.put(apiEndpoint + this._id, this);
+      },
+      isAdmin: function() {
+        return this.role === 'admin';
+      },
+      isAuthorizedAs: function(role) {
+        return this.role === role;
       }
 
     };
