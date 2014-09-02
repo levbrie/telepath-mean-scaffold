@@ -15,7 +15,7 @@
     res.status(result.status);
     res.render(viewFilePath, function (err) {
       if (err) {
-//        return res.json(result, result.status); // this was deprecated
+        // return res.json(result, result.status); // this was deprecated
         return res.status(result.status).json(result);
       }
 

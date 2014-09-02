@@ -59,4 +59,13 @@
       authorizationEndpoint: 'https://foursquare.com/oauth2/authenticate'
     });
   });
+
+  core.run(function Run($auth, $log, IdentityService) {
+    if ($auth.isAuthenticated()) {
+      console.log('getting current user');
+      IdentityService.getCurrentUser();
+    } else {
+      $log.warn('user not authenticated');
+    }
+  });
 })();

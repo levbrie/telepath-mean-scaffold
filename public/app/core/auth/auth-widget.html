@@ -1,0 +1,17 @@
+<ul ng-if="!isAuthenticated()" class="nav navbar-nav navbar-right">
+  <li><a href class="" ng-click="displayLogin()">Login</a></li>
+  <li><a href>or</a></li>
+  <li><a href class="" ng-click="displaySignup()">Signup</a></li>
+
+</ul>
+
+<ul ng-if="isAuthenticated()" class="nav navbar-nav navbar-right">
+  <li on-toggle="toggled(open)" class="dropdown">
+    <a href="href" class="dropdown-toggle">{{identity.currentUser().displayName}}<b class="caret"></b></a>
+    <ul class="dropdown-menu">
+      <li><a href="/account">Account</a></li>
+      <li><a href="" ng-click="signout()">Sign Out</a></li>
+    </ul>
+  </li>
+</ul>
+<h4>{{ identity.currentUser }}</h4>
