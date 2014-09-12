@@ -1,10 +1,11 @@
 angular.module('app.core')
-  .controller('LoginCtrl', function($scope, $auth, IdentityService, ngDialog) {
+  .controller('LoginCtrl', function($scope, $auth, IdentityService, ngDialog, toastr) {
     $scope.login = function() {
       $auth.login({ email: $scope.email, password: $scope.password })
         .then(function() {
           IdentityService.getCurrentUser();
           console.log('you have logged in');
+          toastr.info('Login', 'Welcome back');
           ngDialog.closeAll();
 //          $alert({
 //            content: 'You have successfully logged in',

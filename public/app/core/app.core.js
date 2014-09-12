@@ -5,6 +5,6 @@
     'ngResource', 'ngAnimate', 'ngRoute',
 
     /* 3rd party modules */
-    'ui.bootstrap', 'satellizer', 'ngDialog'
+    'ui.bootstrap', 'satellizer', 'ngDialog', 'toastr'
   ]);
 })();
