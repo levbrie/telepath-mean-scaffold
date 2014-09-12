@@ -1,6 +1,60 @@
-# MEAN SCAFFOLD
+## TOC  <a name="toc"></a>
+
+<!-- MarkdownTOC depth=0 -->
+
+- [MEAN SCAFFOLD](#mean-scaffold)
+  - [(MONGODB, EXPRESS, ANGULAR, NODE)](#mongodb-express-angular-node)
+- [APPLICATION CORE](#application-core)
+  - [Application Core Components](#application-core-components)
+- [Express](#express)
+  - [Express Middleware extracted out into separate packages in Express 4](#express-middleware-extracted-out-into-separate-packages-in-express-4)
+- [Grunt Packages](#grunt-packages)
+- [MONGODB](#mongodb)
+  - [Importing Data into Mongo](#importing-data-into-mongo)
+- [AUTH](#auth)
+  - [Currently Leviathan apps use cookie-based authentication](#currently-leviathan-apps-use-cookie-based-authentication)
+  - [Experimenting with Token-Based Authentication, see:](#experimenting-with-token-based-authentication-see)
+  - [Implementation in Express](#implementation-in-express)
+  - [More on Claims-based identity](#more-on-claims-based-identity)
+  - [We also need to figure out how auth will be handled for sockets with socket.io or WebSockets and the token-based approach seems to be the one used by Firebase.  An article specific to socket.io token-based auth from the same author as above.  Socket.io has a global authorization callback and there is an npm package integrating jwt (JSON Web Tokens) with it: socketio-jwt](#we-also-need-to-figure-out-how-auth-will-be-handled-for-sockets-with-socket.io-or-websockets-and-the-token-based-approach-seems-to-be-the-one-used-by-firebase.--an-article-specific-to-socket.io-token-based-auth-from-the-same-author-as-above.--socket.io-has-a-global-authorization-callback-and-there-is-an-npm-package-integrating-jwt-json-web-tokens-with-it-socketio-jwt)
+- [GRUNT](#grunt)
+  - [grunt-express-server and custom wait task](#grunt-express-server-and-custom-wait-task)
+  - [Implemented](#implemented)
+  - [Roadmap](#roadmap)
+  - [Possible npm packages:](#possible-npm-packages)
+- [AUTHORIZATION](#authorization)
+  - [★ Login with OAuth 2.0](#★-login-with-oauth-2.0)
+  - [★ Login with OAuth 1.0](#★-login-with-oauth-1.0)
+  - [★ Login with Email and Password](#★-login-with-email-and-password)
+  - [★ Signup](#★-signup)
+  - [★ Logout](#★-logout)
+- [Obtaining OAuth Keys](#obtaining-oauth-keys)
+
+<!-- /MarkdownTOC -->
+
+
+
+
+MEAN SCAFFOLD
 ---------------------------------------------------
 #### (MONGODB, EXPRESS, ANGULAR, NODE)
+
+## APPLICATION CORE
+
+The client-side architecture is modular and built to encourage best practices.  In this regard, it is focused on three areas in particular:
+
+(1) angularjs-specific styles and best practices
+(2) DRY, SOLID, scalable, reusable and well-structured code
+(3) modularity
+
+### Application Core Components
+The 'app.core' module houses functionality core to almost any large-scale angular application, including auth and user functionality, logging, navigation (@wip should use ui-router), and search.
+
+Core functionality that does not typically need to be called upon by other parts of the system exists within the core but is not exposed to the rest of the application directly (although of course it can be used in the main application, since angular modules do not create separate namespaces).
+
+Core functionality that other parts of the system will frequently want to make use of is contained within the common module, which exposes a public api for accessing useful core services, including:
+
+  * logger (for logging and notification)
 
 ## Express
 
@@ -94,7 +148,7 @@ Express.js uses the npm packages express-jwt and jsonwebtoken to implement the J
 
 > [To better understand the concept of security token service, consider the analogy of a night club with a doorman. The doorman wants to prevent under-age patrons from entry. To facilitate this he requests a patron to present a driver's license, health insurance card or other identification (the token) that has been issued by a trusted third party (the security token service) such as the provincial or state vehicle license department, health department or insurance company. The nightclub is thus alleviated of the responsibility of determining the patron's age. It only has to trust the issuing authority (and of course make its own judgment of the authenticity of the token presented). With these two steps completed the nightclub has successfully authenticated the patron with regard to the claim that he or she is of legal drinking age.](http://en.wikipedia.org/wiki/Claims-based_identity)
 
-### More on Claims-based identity.
+### More on Claims-based identity
 
 > Claims-based identity has the potential to simplify authentication logic for individual software applications, because those applications don't have to provide mechanisms for account creation, password creation, reset, and so on. Furthermore, claims-based identity enables applications to know certain things about the user, without having to interrogate the user to determine those facts. The facts, or claims, are transported in an "envelope" called a secure token.
 
@@ -162,7 +216,7 @@ In order to ensure that the express server has time to reload on grunt watches w
 * [grunt-sassdoc](https://github.com/SassDoc/grunt-sassdoc)
 
 
-##AUTHORIZATION
+## AUTHORIZATION
 
 The authorization strategy is token-based, relying on *Token-Based Authentication* with
 [JSON Web Tokens](https://auth0.com/blog/2014/01/07/angularjs-authentication-with-cookies-vs-token/), and handled by the [satellizer module](https://github.com/sahat/satellizer/).
@@ -188,7 +242,7 @@ Additional info can be found here:
  - **Authorized Javascript origins**: *http://localhost:3000*
  - **Authorized redirect URI**: *http://localhost:3000*
 
-**:exclamation: Note:** Make sure you have turned on **Contacts API** and 
+**:exclamation: Note:** Make sure you have turned on **Contacts API** and
 **Google+ API** in the *APIs* tab.
 
 <hr>

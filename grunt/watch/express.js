@@ -6,7 +6,7 @@
     tasks: [ 'express:dev', 'wait'],
     options: {
       livereload: true,
-      spawn: false
+      nospawn: true
     }
   };
 }());

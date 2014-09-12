@@ -2,7 +2,7 @@
   'use strict';
 
   var appCore = angular.module('app.core');
-  appCore.controller('AuthCtrl', function($scope, $log, $auth, IdentityService, ngDialog, toastr) {
+  appCore.controller('AuthCtrl', function($scope, $log, $auth, IdentityService, ngDialog, logger) {
     $scope.isAuthenticated = function() {
       return $auth.isAuthenticated();
     };
@@ -31,8 +31,7 @@
       $auth.logout()
         .then(function() {
           IdentityService.logoutCurrentUser();
-          $log.info('successfully logged out');
-          toastr.info('Logout', 'You have succesfully logged out');
+          logger.info('You have successfully logged out', {}, 'Logout');
         });
     };
   });

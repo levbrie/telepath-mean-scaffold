@@ -21,7 +21,7 @@ module.exports = function(grunt) {
       jsTest     :   require('./grunt/watch/jsTest'),
       livereload :   require('./grunt/watch/livereload'),
       express    :   require('./grunt/watch/express'),
-      gruntfile  :   { files: ['Gruntfile.js'], tasks: ['default'] }
+      gruntfile  :   { files: ['Gruntfile.js'], tasks: ['reload'] }
     },
     jshint       : require('./grunt/jshintTask'),
     uglify       : require('./grunt/uglifyTask')("<%= files.js.public %>"),
@@ -37,8 +37,11 @@ module.exports = function(grunt) {
     setTimeout(function() {
       grunt.log.writeln('Done waiting.');
       done();
-    }, 500);
+    }, 1500);
   });
+  // grunt.registerTask('express-keepalive', 'Keep grunt running', function() {
+  //   this.async();
+  // });
   grunt.registerTask('serve', function (target) {
     grunt.task.run(['express:dev', 'open', 'watch']);
   });

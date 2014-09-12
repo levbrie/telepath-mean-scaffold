@@ -1,10 +1,9 @@
 angular.module('app.core')
-  .controller('LogoutCtrl', function($auth, IdentityService, toastr) {
+  .controller('LogoutCtrl', function($auth, IdentityService, logger) {
     $auth.logout()
       .then(function() {
         IdentityService.logoutCurrentUser();
-        console.log('you have been logged out');
-        toastr.info('Logout', 'You have successfully logged out.');
+        logger.warn('Logout successful', {}, 'You have been logged out.');
 //        $alert({
 //          content: 'You have been logged out',
 //          animation: 'fadeZoomFadeDown',
