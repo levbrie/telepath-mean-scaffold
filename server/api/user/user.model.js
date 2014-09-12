@@ -19,6 +19,7 @@
     role:           {type:String, required:'{PATH} is required!', default: 'user'},
     firstName:      {type:String, required:'{PATH} is required!'},
     lastName:       {type:String, required:'{PATH} is required!'},
+    profileImageUrl:String,
     provider:       String,
     displayName:    String,
     facebook:       {},

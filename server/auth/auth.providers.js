@@ -85,6 +85,9 @@
                 user.lastName = profile.family_name;
                 user.email = profile.email;
                 user.provider = 'google';
+                if (profile.picture) {
+                  user.profileImageUrl = profile.picture;
+                }
                 console.log('creating user in else statement');
                 console.log(user.google);
                 user.displayName = profile.name;
