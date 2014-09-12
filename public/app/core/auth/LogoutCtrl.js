@@ -1,5 +1,6 @@
 angular.module('app.core')
-  .controller('LogoutCtrl', function($auth, IdentityService, logger) {
+  .controller('LogoutCtrl', function($auth, IdentityService, common) {
+    var logger = common.logger;
     $auth.logout()
       .then(function() {
         IdentityService.logoutCurrentUser();

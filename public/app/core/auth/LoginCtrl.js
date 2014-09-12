@@ -1,5 +1,6 @@
 angular.module('app.core')
-  .controller('LoginCtrl', function($scope, $auth, IdentityService, ngDialog, logger) {
+  .controller('LoginCtrl', function($scope, $auth, IdentityService, ngDialog, common) {
+    var logger = common.logger;
     $scope.login = function() {
       $auth.login({ email: $scope.email, password: $scope.password })
         .then(function() {
