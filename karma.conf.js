@@ -43,6 +43,11 @@ module.exports = function(config) {
     preprocessors: {
       '**/*.html': ['ng-html2js'],
       '**/**/*.html': ['ng-html2js'],
+      // '**/*.js': ['coverage'],
+      // source files, that you wanna generate coverage for
+      // do not include tests or libraries
+      // (these files will be instrumented by Istanbul)
+      // '*.js': ['coverage'],
       '**/*.js': ['coverage']
     },
 
@@ -67,8 +72,10 @@ module.exports = function(config) {
       // templatePath: __dirname+'/jasmine_template.html'
     },
     coverageReporter: {
-      type: 'lcov',
-      dir: process.env.CIRCLE_ARTIFACTS || '../../CIRCLE_ARTIFACTS'
+      // type: 'lcov',
+      // dir: process.env.CIRCLE_ARTIFACTS || '../../CIRCLE_ARTIFACTS'
+      dir: '../../coverage',
+      subdir: '.'
     },
 
     // web server port
