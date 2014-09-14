@@ -1,10 +1,12 @@
 angular.module('app.core')
-  .controller('ProfileCtrl', function($scope, $auth, Account) {
+  .controller('ProfileCtrl', function($scope, $auth, AccountService) {
 
     /**
      * Get user's profile information.
+     * this should actually use the IdentityService, which already provides
+     * user and updateProfile functionality
      */
-    Account.getProfile()
+    AccountService.getProfile()
       .success(function(data) {
         $scope.user = data;
       })
@@ -23,7 +25,7 @@ angular.module('app.core')
      * Update user's profile information.
      */
     $scope.updateProfile = function() {
-      Account.updateProfile({
+      AccountService.updateProfile({
         displayName: $scope.user.displayName,
         email: $scope.user.email
       }).then(function() {

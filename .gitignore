@@ -10,6 +10,6 @@ public/bower_components/
 tmp
 tmpUploads
 coverage/
+CIRCLE_ARTIFACTS/
 dist/
 gen/
-CIRCLE_ARTIFACTS/

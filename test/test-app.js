@@ -1,1 +1,1 @@
-angular.module('app', ['ngResource', 'ngRoute']);
+angular.module('app', ['app.core']);

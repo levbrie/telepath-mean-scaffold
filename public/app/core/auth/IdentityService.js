@@ -27,6 +27,7 @@
             currentUser = new User();
             angular.extend(currentUser, data);
             $log.info('current user is now set');
+            $log.info(currentUser);
             deferred.resolve(currentUser);
           })
           .error(function(data, status, headers, config) {

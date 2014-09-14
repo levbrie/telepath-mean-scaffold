@@ -18,12 +18,19 @@ module.exports = function(config) {
       '../bower_components/angular-mocks/angular-mocks.js',
       '../bower_components/angular-route/angular-route.js',
       '../bower_components/angular-animate/angular-animate.js',
+      '../bower_components/angular-sanitize/angular-sanitize.js',
       '../bower_components/lodash/dist/lodash.compat.js',
       '../bower_components/moment/moment.js',
       '../bower_components/angular-moment/angular-moment.js',
+      '../bower_components/angular-toastr/dist/angular-toastr.js',
+      '../bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      '../bower_components/satellizer/satellizer.js',
+      '../bower_components/lodash/dist/lodash.compat.js',
+      '../bower_components/ngDialog/js/ngDialog.js',
       '../../test/test-app.js',
       '**/*.js',
       '../../test/specs/**/*.js',
+      '../../test/specs/**/**/*.js',
       '**/**/*.html',
       '**/*.html'   // load html files for directives so it can process them
     ],
@@ -53,8 +60,12 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
+    reporters: ['dots', 'progress', 'html', 'osx', 'coverage'],
 
+    htmlReporter: {
+      outputDir: 'coverage'
+      // templatePath: __dirname+'/jasmine_template.html'
+    },
     coverageReporter: {
       type: 'lcov',
       dir: process.env.CIRCLE_ARTIFACTS || '../../CIRCLE_ARTIFACTS'
@@ -68,7 +79,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_WARN,
 
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: false,

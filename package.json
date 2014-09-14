@@ -74,6 +74,8 @@
     "mocha": "^1.21.3",
     "protractor": "^1.0.0",
     "time-grunt": "^0.4.0",
-    "grunt-injector": "^0.5.4"
+    "grunt-injector": "^0.5.4",
+    "karma-osx-reporter": "^0.1.0",
+    "karma-html-reporter": "^0.2.4"
   }
 }
