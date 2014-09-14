@@ -2,6 +2,7 @@ var express         = require('express'),
     session         = require('express-session'),
     ejs             = require('ejs'),
     morgan          = require('morgan'),
+    MORGAN_FORMAT   = 'dev',
     bodyParser      = require('body-parser'),
     methodOverride  = require('method-override'),
     expressJwt      = require('express-jwt'),
@@ -14,7 +15,7 @@ module.exports = function(app, config, env) {
   app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
   app.use(express.static(config.rootPath + '/public'));   // set the static files location /public/img will be /img for users
-  app.use(morgan('combined'));   // log every request to the console, I've also seen app.use(morgan('dev'));
+  app.use(morgan(MORGAN_FORMAT));   // log every request to the console, I've also seen app.use(morgan('dev'));
 
   // app.use(cookieParser());
   app.use(methodOverride());     // simulate DELETE and PUT

@@ -7,7 +7,7 @@
     dev: {
       options: {
         script: 'server.js',
-        debug: true
+        debug: false
       }
     },
     prod: {
