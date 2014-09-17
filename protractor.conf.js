@@ -1,5 +1,9 @@
 exports.config = {
   seleniumAddress: 'http://localhost:4444/wd/hub',
-  specs: ['test/e2e/*_test.js'],
-  baseUrl: 'http://localhost:' + process.env.PORT //default test port with Yeoman
+  // seleniumAddress: 'http://127.0.0.1:4444/wd/hub',
+  specs: ['test/e2e/*.spec.js'],
+  baseUrl: 'http://localhost:3000', //default test port with Yeoman
+  capabilities: {
+    browserName: 'chrome'
+  }
 }
