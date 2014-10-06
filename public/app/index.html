@@ -16,7 +16,7 @@
       padding-bottom: 20px;
     }
   </style>
-  <link rel="stylesheet" href="/stylesheets/css/style.css"/>
+  <link rel="stylesheet" href="/stylesheets/css/style.css" />
   <!-- bower:css -->
   <link rel="stylesheet" href="../bower_components/ngDialog/css/ngDialog.css" />
   <link rel="stylesheet" href="../bower_components/ngDialog/css/ngDialog-theme-default.css" />
@@ -54,6 +54,7 @@
   <script src="/bower_components/es5-shim/es5-shim.js"></script>
   <script src="/bower_components/json3/lib/json3.min.js"></script>
   <![endif]-->
+  <!-- build:js(client) app/vendor.js -->
   <!-- bower:js -->
   <script src="../bower_components/jquery/dist/jquery.js"></script>
   <script src="../bower_components/angular/angular.js"></script>
@@ -71,8 +72,10 @@
   <script src="../bower_components/ngDialog/js/ngDialog.js"></script>
   <script src="../bower_components/angular-toastr/dist/angular-toastr.js"></script>
   <!-- endbower -->
+  <!-- endbuild -->
 
 
+  <!-- build:js({.tmp,client}) app/app.min.js -->
   <!-- injector:js -->
   <script src="app/app.js"></script>
   <script src="app/core/app.core.js"></script>
@@ -97,5 +100,6 @@
   <script src="app/core/user/ProfileCtrl.js"></script>
   <script src="app/core/user/User.js"></script>
   <!-- endinjector -->
+  <!-- endbuild -->
 </body>
 </html>

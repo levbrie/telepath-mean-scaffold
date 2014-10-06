@@ -12,6 +12,12 @@
     "test"    : [
       "test/{,*//}*.js",
       "test/*/*/*.js"
+    ],
+    "dist"    : [
+      "dist/"
+    ],
+    "tmp"     : [
+      ".tmp/"
     ]
   },
   "css": ["**/*.scss"],

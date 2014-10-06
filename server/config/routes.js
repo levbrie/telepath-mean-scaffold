@@ -14,7 +14,8 @@ module.exports = function(app) {
   // see https://github.com/auth0/angular-token-auth/blob/master/auth.server.js
   app.use(function(err, req, res, next){
     if (err.constructor.name === 'UnauthorizedError') {
-      res.send(401, 'Unauthorized');
+      // res.send(401, 'Unauthorized');
+      res.status(401).send('Unauthorized');
     }
   });
 

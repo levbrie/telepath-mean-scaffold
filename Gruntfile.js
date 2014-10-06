@@ -3,7 +3,8 @@
 module.exports = function(grunt) {
   var justInTimeStaticMappings = { // for plugins that can't be resolved in auto mapping
     protractor: 'grunt-protractor-runner',
-    express: 'grunt-express-server'
+    express: 'grunt-express-server',
+    useminPrepare: 'grunt-usemin'
   };
   require('jit-grunt')(grunt, justInTimeStaticMappings);    // just-in-time plugin loader (no more loadNpmTasks)
   require('time-grunt')(grunt);
@@ -24,7 +25,7 @@ module.exports = function(grunt) {
       gruntfile  :   { files: ['Gruntfile.js'], tasks: ['reload'] }
     },
     jshint       : require('./grunt/jshintTask'),
-    uglify       : require('./grunt/uglifyTask')("<%= files.js.public %>"),
+    // uglify       : require('./grunt/uglifyTask')("<%= files.js.public %>"),
     karma        : require('./grunt/karmaTask'),
     protractor   : require('./grunt/protractorTask'),
     wiredep      : require('./grunt/wiredep'),

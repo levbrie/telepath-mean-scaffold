@@ -9,7 +9,7 @@
     development: {
       rootPath: rootPath,
       db: 'mongodb://localhost/mean-scaffold',
-      port: process.env.PORT || 3030
+      port: process.env.PORT || 3000
     },
     production: {
       rootPath: rootPath,
