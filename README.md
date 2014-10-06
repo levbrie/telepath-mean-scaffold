@@ -16,19 +16,20 @@
   - [Experimenting with Token-Based Authentication, see:](#experimenting-with-token-based-authentication-see)
   - [Implementation in Express](#implementation-in-express)
   - [More on Claims-based identity](#more-on-claims-based-identity)
-  - [We also need to figure out how auth will be handled for sockets with socket.io or WebSockets and the token-based approach seems to be the one used by Firebase.  An article specific to socket.io token-based auth from the same author as above.  Socket.io has a global authorization callback and there is an npm package integrating jwt (JSON Web Tokens) with it: socketio-jwt](#we-also-need-to-figure-out-how-auth-will-be-handled-for-sockets-with-socket.io-or-websockets-and-the-token-based-approach-seems-to-be-the-one-used-by-firebase.--an-article-specific-to-socket.io-token-based-auth-from-the-same-author-as-above.--socket.io-has-a-global-authorization-callback-and-there-is-an-npm-package-integrating-jwt-json-web-tokens-with-it-socketio-jwt)
+  - [We also need to figure out how auth will be handled for sockets with socket.io or WebSockets and the token-based approach seems to be the one used by Firebase.  An article specific to socket.io token-based auth from the same author as above.  Socket.io has a global authorization callback and there is an npm package integrating jwt (JSON Web Tokens) with it: socketio-jwt](#we-also-need-to-figure-out-how-auth-will-be-handled-for-sockets-with-socketio-or-websockets-and-the-token-based-approach-seems-to-be-the-one-used-by-firebase--an-article-specific-to-socketio-token-based-auth-from-the-same-author-as-above--socketio-has-a-global-authorization-callback-and-there-is-an-npm-package-integrating-jwt-json-web-tokens-with-it-socketio-jwt)
 - [GRUNT](#grunt)
   - [grunt-express-server and custom wait task](#grunt-express-server-and-custom-wait-task)
   - [Implemented](#implemented)
   - [Roadmap](#roadmap)
   - [Possible npm packages:](#possible-npm-packages)
 - [AUTHORIZATION](#authorization)
-  - [★ Login with OAuth 2.0](#★-login-with-oauth-2.0)
-  - [★ Login with OAuth 1.0](#★-login-with-oauth-1.0)
+  - [★ Login with OAuth 2.0](#★-login-with-oauth-20)
+  - [★ Login with OAuth 1.0](#★-login-with-oauth-10)
   - [★ Login with Email and Password](#★-login-with-email-and-password)
   - [★ Signup](#★-signup)
   - [★ Logout](#★-logout)
 - [Obtaining OAuth Keys](#obtaining-oauth-keys)
+- [Deploying to Heroku](#deploying-to-heroku)
 
 <!-- /MarkdownTOC -->
 
@@ -267,3 +268,15 @@ Additional info can be found here:
 - Under *Application Type* select **Read and Write** access
 - Check the box **Allow this application to be used to Sign in with Twitter**
 - Click **Update this Twitter's applications settings**
+
+
+## Deploying to Heroku
+
+```$ heroku create```
+```$ git push heroku master```
+```$ heroku ps:scale web=1```
+```$ heroku open```
+
+Create a Procfile with ```web: node server.js```
+Set the config vars for heroku with ```$ heroku config:set ENV_VAR=env_var_value```
+(this should include everything in .env -> APP_SECRET, TOKEN_SECRET, MONGOLAB_URL, etc.)
