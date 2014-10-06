@@ -3,9 +3,10 @@
   "version": "0.0.0",
   "description": "MEAN Scaffold for eventually creating a substantial MEAN Yeoman generator.",
   "main": "server.js",
-  "respository": "",
+  "respository": "https://github.com/leviathantech/mean-scaffold",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "engines": {
     "node": "0.10.x",
