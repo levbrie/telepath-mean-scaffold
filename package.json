@@ -6,7 +6,7 @@
   "respository": "https://github.com/leviathantech/mean-scaffold",
   "scripts": {
     "test": "grunt test",
-    "postinstall": "./node_modules/bower/bin/bower install"
+    "postinstall": "mkdir ./public/app/bower_components && ./node_modules/bower/bin/bower install"
   },
   "engines": {
     "node": "0.10.x",
