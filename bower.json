@@ -28,7 +28,7 @@
     "tests"
   ],
   "devDependencies": {
-    "angular": "~1.2.21",
+    "angular": "1.2.21",
     "angular-animate": "~1.2.21",
     "angular-cookies": "~1.2.21",
     "angular-mocks": "~1.2.21",
