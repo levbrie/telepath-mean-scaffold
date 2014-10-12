@@ -26,6 +26,7 @@
         dest: '<%= directories.dist %>',
         src: [
           'package.json',
+          'server.js',
           'server/**/*'
         ]
       }]
