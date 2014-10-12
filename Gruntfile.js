@@ -29,8 +29,12 @@ module.exports = function(grunt) {
       gruntfile  :   { files: ['Gruntfile.js'], tasks: ['reload'] }
     },
     jshint       : require('./grunt/jshintTask'),
+
+    /* TESTING */
     karma        : require('./grunt/karmaTask'),
     protractor   : require('./grunt/protractorTask'),
+
+    /* INJECT REFS INTO index.html */
     wiredep      : require('./grunt/wiredep'),
     injector     : require('./grunt/injector'),
 
@@ -44,7 +48,17 @@ module.exports = function(grunt) {
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin       : require('./grunt/build/usemin'),
     // Copies remaining files to places other tasks can use
-    copy         : require('./grunt/build/copy')
+    copy         : require('./grunt/build/copy'),
+    ngAnnotate   : {
+      options: {
+        singleQuotes: true
+      },
+      appsInConcat: {
+        files: {
+          '.tmp/concat/app/app.min.js': ['.tmp/concat/app/app.min.js']
+        }
+      }
+    }
   };
   grunt.initConfig(config);
   grunt.registerTask('wait', function() {
@@ -67,8 +81,8 @@ module.exports = function(grunt) {
     grunt.task.run(['wiredep', 'injector', 'jshint', 'test']);
   });
   grunt.registerTask('build', [
-    'clean:dist', 'inject', 'useminPrepare',
-    'cssmin', 'concat', 'copy:dist', 'uglify', 'usemin'
+    'clean:dist', 'inject', 'useminPrepare', 'cssmin',
+    'concat', 'ngAnnotate', 'copy:dist', 'uglify', 'usemin'
   ]);
   grunt.registerTask('default', function() {
     grunt.log.writeln('Grunt Author: ' + grunt.config.get('pkg.author'));
