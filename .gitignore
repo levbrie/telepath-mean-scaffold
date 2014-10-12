@@ -8,7 +8,7 @@ public/stylesheets/.sass-cache
 public/bower_components/
 .env
 tmp
-.tmp
+\.tmp
 .tmp/
 .tmp/*
 .tmp/concat/
