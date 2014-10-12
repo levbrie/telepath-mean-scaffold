@@ -29,105 +29,22 @@ module.exports = function(grunt) {
       gruntfile  :   { files: ['Gruntfile.js'], tasks: ['reload'] }
     },
     jshint       : require('./grunt/jshintTask'),
-    // uglify       : require('./grunt/uglifyTask')("<%= files.js.public %>"),
     karma        : require('./grunt/karmaTask'),
     protractor   : require('./grunt/protractorTask'),
     wiredep      : require('./grunt/wiredep'),
     injector     : require('./grunt/injector'),
-    cssmin: {
-      combine: {
-        files: {
-          '<%= directories.dist %>/public/style.css': [
-            '<%= directories.client %>/stylesheets/css/style.css'
-          ]
-        }
-      }
-    },
-    clean        : {
-      dist: {
-        files: [{
-          dot: true,
-          src: [
-            '.tmp',
-            '<%= directories.dist %>/*',
-            '!<%= directories.dist %>/.git*',
-            '!<%= directories.dist %>/Procfile'
 
-          ]
-        }]
-      },
-      server: '.tmp'
-    },
-
-    // concat: {
-    //   options: {
-    //     separator: ';',
-    //   },
-    //   dist: {
-    //     src: ['public/app/**/*.js'],
-    //     dest: '.tmp/concat/app/app.min.js'
-    //   }
-    // },
+    /* BUILD STEPS */
+    cssmin       : require('./grunt/build/cssmin'),
+    clean        : require('./grunt/build/clean'),
     // Reads HTML for usemin blocks to enable smart builds that automatically
     // concat, minify and revision files. Creates configurations in memory so
     // additional tasks can operate on them
-    useminPrepare : {
-      html: ['<%= directories.client %>/index.html'],
-      options : {
-        dest: '<%= directories.dist %>/public'
-      }
-    },
+    useminPrepare: require('./grunt/build/useminPrepare'),
     // Performs rewrites based on rev and the useminPrepare configuration
-    usemin: {
-      html: ['<%= directories.dist %>/public/{,*/}*.html'],
-      css: ['<%= directories.dist %>/public/{,*/}*.css'],
-      // js: ['<%= directories.dist %>/public/{,*/}*.js'],
-      options: {
-        assetsDirs: [
-          '<%= directories.dist %>/public',
-          '<%= directories.dist %>/public/assets/images'
-        ]
-        // This is so we update image references in our ng-templates
-        // (see angular-fullstack to do this)
-      }
-    },
+    usemin       : require('./grunt/build/usemin'),
     // Copies remaining files to places other tasks can use
-    copy: {
-      dist: {
-        files: [{
-          expand: true,
-          dot: true,
-          cwd: '<%= directories.client %>',
-          dest: '<%= directories.dist %>/public',
-          src: [
-            '*.{ico,png,txt}',
-            '.htaccess',
-            'bower_components/**/*',
-            'assets/images/{,*/}*.{webp}',
-            'assets/fonts/**/*',
-            'index.html'
-          ]
-        }, {
-          expand: true,
-          cwd: '.tmp/images',
-          dest: '<%= directories.dist %>/public/assets/images',
-          src: ['generated/*']
-        }, {
-          expand: true,
-          dest: '<%= directories.dist %>',
-          src: [
-            'package.json',
-            'server/**/*'
-          ]
-        }]
-      },
-      styles: {
-        expand: true,
-        cwd: '<%= directories.client %>',
-        dest: '.tmp/',
-        src: ['{app,components}/**/*.css']
-      }
-    }
+    copy         : require('./grunt/build/copy')
   };
   grunt.initConfig(config);
   grunt.registerTask('wait', function() {
