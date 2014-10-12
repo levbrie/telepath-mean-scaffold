@@ -13,7 +13,7 @@
         endtag: '<!-- endinjector -->'
       },
       files: {
-        'public/app/index.html': ['public/app/**/*.js']
+        'public/index.html': ['public/app/**/*.js']
       }
     }
   };
