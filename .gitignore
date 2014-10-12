@@ -8,6 +8,8 @@ public/stylesheets/.sass-cache
 public/bower_components/
 .env
 tmp
+.tmp
+.tmp/
 tmpUploads
 coverage/
 CIRCLE_ARTIFACTS/

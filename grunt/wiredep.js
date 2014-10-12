@@ -7,7 +7,7 @@
       // Point to the files that should be updated when
       // you run `grunt wiredep`
       src: [
-        'public/app/index.html'   // .html support...
+        'public/index.html'   // .html support...
         // 'app/styles/style.scss'  // .scss & .sass support...
         // 'app/config.yml'         // and .yml & .yaml support out of the box!
       ],
@@ -26,4 +26,3 @@
     }
   };
 }());
-
