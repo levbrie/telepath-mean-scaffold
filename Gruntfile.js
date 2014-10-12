@@ -51,26 +51,8 @@ module.exports = function(grunt) {
     // Copies remaining files to places other tasks can use
     copy         : require('./grunt/build/copy'),
     ngAnnotate   : require('./grunt/build/ngAnnotate'),
-    ngtemplates: {
-      // one subtask for each module ?
-      app: {
-        options: {
-          htmlmin: {
-            collapseBooleanAttributes: true,
-            collapseWhitespace: true,
-            removeAttributeQuotes: true,
-            removeEmptyAttributes: true,
-            removeRedundantAttributes: true,
-            removeScriptTypeAttributes: true,
-            removeStyleLinkTypeAttributes: true
-          },
-          usemin: 'app/app.min.js'
-        },
-        cwd: '<%= directories.client %>',
-        src: ['{app,components}/**/*.html'],
-        dest: '.tmp/templates.js'
-      }
-    }
+    ngtemplates  : require('./grunt/build/ngtemplates')
+
   };
   grunt.initConfig(config);
   grunt.registerTask('wait', function() {
@@ -85,6 +67,11 @@ module.exports = function(grunt) {
   //   this.async();
   // });
   grunt.registerTask('serve', function (target) {
+    if (target === 'prod') {
+      return grunt.task.run([
+        'build', 'express:prod', 'open'
+      ]);
+    }
     grunt.task.run(['express:dev', 'open', 'watch']);
   });
   grunt.registerTask('inject', ['wiredep', 'injector']);
