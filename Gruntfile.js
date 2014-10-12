@@ -49,16 +49,7 @@ module.exports = function(grunt) {
     usemin       : require('./grunt/build/usemin'),
     // Copies remaining files to places other tasks can use
     copy         : require('./grunt/build/copy'),
-    ngAnnotate   : {
-      options: {
-        singleQuotes: true
-      },
-      appsInConcat: {
-        files: {
-          '.tmp/concat/app/app.min.js': ['.tmp/concat/app/app.min.js']
-        }
-      }
-    }
+    ngAnnotate   : require('./grunt/build/ngAnnotate')
   };
   grunt.initConfig(config);
   grunt.registerTask('wait', function() {
