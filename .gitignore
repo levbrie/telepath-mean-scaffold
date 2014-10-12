@@ -10,6 +10,9 @@ public/bower_components/
 tmp
 .tmp
 .tmp/
+.tmp/*
+.tmp/concat/
+.tmp/concat/app/
 tmpUploads
 coverage/
 CIRCLE_ARTIFACTS/
