@@ -63,13 +63,13 @@ module.exports = function(grunt) {
       done();
     }, 1500);
   });
-  // grunt.registerTask('express-keepalive', 'Keep grunt running', function() {
-  //   this.async();
-  // });
+  grunt.registerTask('express-keepalive', 'Keep grunt running', function() {
+    this.async();
+  });
   grunt.registerTask('serve', function (target) {
     if (target === 'prod') {
       return grunt.task.run([
-        'build', 'express:prod', 'open'
+        'build', 'express:prod', 'open', 'express-keepalive'
       ]);
     }
     grunt.task.run(['express:dev', 'open', 'watch']);

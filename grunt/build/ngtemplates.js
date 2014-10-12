@@ -5,6 +5,7 @@
     // one subtask for each module ?
     app: {
       options: {
+        prefix: '/partials/',
         htmlmin: {
           collapseBooleanAttributes: true,
           collapseWhitespace: true,
@@ -16,8 +17,8 @@
         },
         usemin: 'app/app.min.js'
       },
-      cwd: '<%= directories.client %>',
-      src: ['{app,components}/**/*.html'],
+      cwd: '<%= directories.client %>/app',
+      src: ['**/*.html'],
       dest: '.tmp/templates.js'
     }
   };

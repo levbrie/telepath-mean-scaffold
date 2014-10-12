@@ -11,7 +11,7 @@
         src: [
           '*.{ico,png,txt}',
           '.htaccess',
-          // 'bower_components/**/*',
+          'bower_components/**/*',
           'assets/images/{,*/}*.{webp}',
           'assets/fonts/**/*',
           'index.html'
