@@ -7,13 +7,13 @@
       options: {
         prefix: '/partials/',
         htmlmin: {
-          collapseBooleanAttributes: true,
+          collapseBooleanAttributes: false,
           collapseWhitespace: true,
-          removeAttributeQuotes: true,
-          removeEmptyAttributes: true,
-          removeRedundantAttributes: true,
-          removeScriptTypeAttributes: true,
-          removeStyleLinkTypeAttributes: true
+          removeAttributeQuotes: false,
+          removeEmptyAttributes: false,
+          removeRedundantAttributes: false,
+          removeScriptTypeAttributes: false,
+          removeStyleLinkTypeAttributes: false
         },
         usemin: 'app/app.min.js'
       },
