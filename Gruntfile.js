@@ -3,8 +3,8 @@
 module.exports = function(grunt) {
   var justInTimeStaticMappings = { // for plugins that can't be resolved in auto mapping
     protractor: 'grunt-protractor-runner',
-    express: 'grunt-express-server'
-    // useminPrepare: 'grunt-usemin'
+    express: 'grunt-express-server',
+    useminPrepare: 'grunt-usemin'
   };
   require('jit-grunt')(grunt, justInTimeStaticMappings);    // just-in-time plugin loader (no more loadNpmTasks)
   require('time-grunt')(grunt);
