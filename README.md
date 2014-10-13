@@ -1,3 +1,5 @@
+[![Code Climate](https://codeclimate.com/github/leviathantech/mean-scaffold/badges/gpa.svg)](https://codeclimate.com/github/leviathantech/mean-scaffold)
+
 ## TOC  <a name="toc"></a>
 
 <!-- MarkdownTOC depth=0 -->
