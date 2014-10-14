@@ -48,20 +48,20 @@
       $scope.link = function(provider) {
         $auth.link(provider)
           .then(function() {
-            $alert({
-              content: 'You have successfully linked ' + provider + ' account',
-              animation: 'fadeZoomFadeDown',
-              type: 'material',
-              duration: 3
-            });
+            // $alert({
+            //   content: 'You have successfully linked ' + provider + ' account',
+            //   animation: 'fadeZoomFadeDown',
+            //   type: 'material',
+            //   duration: 3
+            // });
           })
           .catch(function(response) {
-            $alert({
-              content: response.data.message,
-              animation: 'fadeZoomFadeDown',
-              type: 'material',
-              duration: 3
-            });
+            // $alert({
+            //   content: response.data.message,
+            //   animation: 'fadeZoomFadeDown',
+            //   type: 'material',
+            //   duration: 3
+            // });
           });
       };
 

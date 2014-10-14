@@ -62,7 +62,7 @@
 
   core.run(function Run($auth, $log, IdentityService) {
     if ($auth.isAuthenticated()) {
-      console.log('getting current user');
+      $log.info('getting current user');
       IdentityService.getCurrentUser();
     } else {
       $log.warn('user not authenticated');

@@ -8,8 +8,9 @@
       MORGAN_FORMAT   = 'dev',              // https://github.com/expressjs/morgan
       bodyParser      = require('body-parser'),
       methodOverride  = require('method-override'),
-      expressJwt      = require('express-jwt'),
-      jwt             = require('jsonwebtoken'),
+      // expressJwt      = require('express-jwt'),
+      jwt             = require('jwt-simple'),
+      // jwt             = require('jsonwebtoken'),
       passport        = require('passport');
 
   module.exports = function(app, config, env) {
@@ -30,7 +31,7 @@
     // last time we waited until we were in the routes, but maybe this just
     // registers the middleware
     // and this is where we implemented cookie-based auth before so...
-    app.use('/api', expressJwt({secret: process.env.APP_SECRET}));
+    // app.use('/api', expressJwt({secret: process.env.APP_SECRET}));
 
     app.use(session({
       secret: process.env.APP_SECRET,

@@ -15,7 +15,6 @@
   router.get('/me', authService.ensureAuthenticated, function(req, res) {
     var token = req.headers.authorization.split(' ')[1],
         payload = jwt.decode(token, TOKEN_SECRET);
-
     User.findById(payload.sub, function(err, user) {
       if (err) { return res.render('500'); }
       var userToSend = {

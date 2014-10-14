@@ -10,6 +10,7 @@
       User          = mongoose.model('User'),
       authKeys      = require('./authKeys'),
       authService   = require('./auth.service'),
+      TOKEN_SECRET  = process.env.TOKEN_SECRET,
       request       = require('request');
 
   exports.google = google;
@@ -45,7 +46,7 @@
             }
 
             var token = req.headers.authorization.split(' ')[1];
-            var payload = jwt.decode(token, config.TOKEN_SECRET);
+            var payload = jwt.decode(token, TOKEN_SECRET);
 
             User.findById(payload.sub, function(err, user) {
               if (!user) {
@@ -56,7 +57,7 @@
               console.log(user.google);
               user.displayName = user.displayName || profile.name;
               user.save(function(err) {
-                res.send({ token: createToken(req, user) });
+                res.send({ token: authService.createToken(req, user) });
               });
             });
           });

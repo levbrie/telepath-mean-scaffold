@@ -66,7 +66,6 @@
 
       user.comparePassword(req.body.password, function(err, isMatch) {
         if (!isMatch) {
-          console.log(req.body.password);
           console.log('password does not match user');
           return res.status(401).send({ message: 'Wrong email and/or password' });
         }
