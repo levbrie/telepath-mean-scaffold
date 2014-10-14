@@ -1,8 +1,13 @@
-function lvNavMenu () {
-  return {
-    restrict: 'E',
-    templateUrl: '/partials/core/nav/nav-menu.html'
-  };
-}
+(function () {
+  'use strict';
 
-angular.module('app.core').directive('lvNavMenu', lvNavMenu);
+  function lvNavMenu () {
+    return {
+      restrict: 'E',
+      templateUrl: '/partials/core/nav/nav-menu.html'
+    };
+  }
+
+  angular.module('app.core').directive('lvNavMenu', lvNavMenu);
+
+})();

@@ -1,9 +1,14 @@
-function lvSearchBar () {
-  return {
-    restrict: 'E',
-    templateUrl: '/partials/core/search/search-bar.html',
-    controller: 'SearchCtrl'
-  };
-}
+(function () {
+  'use strict';
 
-angular.module('app.core').directive('lvSearchBar', lvSearchBar);
+  function lvSearchBar () {
+    return {
+      restrict: 'E',
+      templateUrl: '/partials/core/search/search-bar.html',
+      controller: 'SearchCtrl'
+    };
+  }
+
+  angular.module('app.core').directive('lvSearchBar', lvSearchBar);
+
+})();

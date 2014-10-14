@@ -1,15 +1,20 @@
-function lvNavbar () {
+(function () {
+  'use strict';
 
-  function link(scope, element, attrs) {
+  function lvNavbar () {
+
+    function link(scope, element, attrs) {
+
+    }
+
+    return {
+      restrict: 'E',
+      templateUrl: '/partials/core/nav/navbar.html',
+      link: link
+    };
 
   }
 
-  return {
-    restrict: 'E',
-    templateUrl: '/partials/core/nav/navbar.html',
-    link: link
-  };
+  angular.module('app.core').directive('lvNavbar', lvNavbar);
 
-}
-
-angular.module('app.core').directive('lvNavbar', lvNavbar);
+})();

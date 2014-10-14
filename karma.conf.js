@@ -72,10 +72,14 @@ module.exports = function(config) {
       // templatePath: __dirname+'/jasmine_template.html'
     },
     coverageReporter: {
-      // type: 'lcov',
+      root: 'public/app',
+      type: 'lcov',
       // dir: process.env.CIRCLE_ARTIFACTS || '../../CIRCLE_ARTIFACTS'
       dir: '../../coverage',
-      subdir: '.'
+      subdir: 'report'
+      // instrumenter: {
+      //   '**/*.js': 'istanbul' // Force the use of the Istanbul instrumenter to cover CoffeeScript files
+      // }
     },
 
     // web server port
