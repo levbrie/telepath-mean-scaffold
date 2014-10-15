@@ -34,6 +34,7 @@
 - [Deploying to Heroku](#deploying-to-heroku)
 - [DEVELOPMENT PROCESS](#development-process)
   - [Semantic Versioning](#semantic-versioning)
+  - [RELEASING NEW VERSIONS:](#releasing-new-versions)
 
 <!-- /MarkdownTOC -->
 
@@ -290,3 +291,20 @@ Set the config vars for heroku with ```$ heroku config:set ENV_VAR=env_var_value
 ### Semantic Versioning
 
 This project uses semantic versioning.  For a very good explanation of semver syntax and semantics, see [the node-semver npm module's github page](https://github.com/npm/node-semver). Also see the full semver spec at [http://semver.org/](http://semver.org/)
+
+* commit messages: cf. [Git Commit Guidelines](https://github.com/ajoslin/conventional-changelog/blob/master/CONVENTIONS.md) based on teh longer [AngularJS Git Commit Conventions](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit)
+
+### RELEASING NEW VERSIONS:
+
+Releasing new versions consists of:
+
+1. bump the version in your `package.json` file.
+2. stage the package.json file's change.
+3. commit that change with a message like "release 0.6.22".
+4. create a new git tag for the release.
+5. push the changes out to github.
+6. also push the new tag out to github.
+7. create a .zip release on github.
+8. publish the new version to npm.
+
+use [grunt-release](https://github.com/geddski/grunt-release) to automate these steps
