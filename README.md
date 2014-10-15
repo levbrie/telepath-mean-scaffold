@@ -32,6 +32,8 @@
   - [★ Logout](#★-logout)
 - [Obtaining OAuth Keys](#obtaining-oauth-keys)
 - [Deploying to Heroku](#deploying-to-heroku)
+- [DEVELOPMENT PROCESS](#development-process)
+  - [Semantic Versioning](#semantic-versioning)
 
 <!-- /MarkdownTOC -->
 
@@ -282,3 +284,9 @@ Additional info can be found here:
 Create a Procfile with ```web: node server.js```
 Set the config vars for heroku with ```$ heroku config:set ENV_VAR=env_var_value```
 (this should include everything in .env -> APP_SECRET, TOKEN_SECRET, MONGOLAB_URL, etc.)
+
+## DEVELOPMENT PROCESS
+
+### Semantic Versioning
+
+This project uses semantic versioning.  For a very good explanation of semver syntax and semantics, see [the node-semver npm module's github page](https://github.com/npm/node-semver). Also see the full semver spec at [http://semver.org/](http://semver.org/)
