@@ -8,7 +8,7 @@
   module.exports = {
     development: {
       rootPath: rootPath,
-      db: 'mongodb://localhost/mean-scaffold',
+      db: 'mongodb://localhost/<%= _.slugify(appname) %>-dev',
       port: process.env.PORT || 3000
     },
     production: {

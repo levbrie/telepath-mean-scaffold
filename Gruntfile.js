@@ -1,3 +1,4 @@
+// Generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
 'use strict';
 
 module.exports = function(grunt) {
@@ -19,7 +20,7 @@ module.exports = function(grunt) {
     files        :   grunt.file.readJSON('./grunt/files.json'),
     config       :   grunt.file.readJSON('./grunt/config.json'),
     express      :   require('./grunt/expressTask'),
-    open         :   require('./grunt/openTask')('<%= express.options.port %>'),
+    open         :   require('./grunt/openTask')('<%%= express.options.port %>'),
     compass      :   require('./grunt/compassTask'),
     watch: {
       js         :   require('./grunt/watch/jsWatch'),
