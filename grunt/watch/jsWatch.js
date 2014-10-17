@@ -1,6 +1,6 @@
 var projectFiles = require('../files.json');
 // console.log(projectFiles);
-console.log(projectFiles['js']);
+console.log(projectFiles.js);
 console.log('public');
 // console.log(projectFiles['js']['public']);
 module.exports = {
