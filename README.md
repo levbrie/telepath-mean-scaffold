@@ -1,4 +1,6 @@
-[![Code Climate](https://codeclimate.com/github/leviathantech/mean-scaffold/badges/gpa.svg)](https://codeclimate.com/github/leviathantech/mean-scaffold)
+## <%= _.titleize(_.humanize(appname)) %>
+
+[![Code Climate](https://codeclimate.com/github/leviathantech/<%= appname %>/badges/gpa.svg)](https://codeclimate.com/github/leviathantech/<%= appname %>)
 
 ## TOC  <a name="toc"></a>
 
