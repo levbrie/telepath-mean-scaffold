@@ -7,7 +7,7 @@
     },
     all: [
       'server.js', 'public/app/app.js', 'public/app/**/*.js',
-      'server/**/*.js'
+      'server/**/*.js', 'test/**/*.js'
     ],
     test: {
       options: {
