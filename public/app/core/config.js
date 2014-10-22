@@ -3,6 +3,14 @@
 
   var core = angular.module('app.core');
 
+  var clientIds = {
+    facebook: '689050897814697',
+    google: '155132075923-u7kk1hoe82hgb9aha1esr8g0ujnopl6o.apps.googleusercontent.com',
+    github: '0ba2600b1dbdb756688b',
+    linkedin: '77cw786yignpzj',
+    foursquare: 'MTCEJ3NGW2PNNB31WOSBFDSAD4MTHYVAZ1UKIULXZ2CVFC2K'
+  };
+
   core.config(function ($locationProvider, $routeProvider, $authProvider) {
     $locationProvider.html5Mode(true);
     $routeProvider
@@ -32,19 +40,19 @@
       });
 
     $authProvider.facebook({
-      clientId: '689050897814697'
+      clientId: clientIds.facebook
     });
 
     $authProvider.google({
-      clientId: '155132075923-u7kk1hoe82hgb9aha1esr8g0ujnopl6o.apps.googleusercontent.com'
+      clientId: clientIds.google
     });
 
     $authProvider.github({
-      clientId: '0ba2600b1dbdb756688b'
+      clientId: clientIds.github
     });
 
     $authProvider.linkedin({
-      clientId: '77cw786yignpzj'
+      clientId: clientIds.linkedin
     });
 
     $authProvider.twitter({
@@ -54,7 +62,7 @@
     $authProvider.oauth2({
       name: 'foursquare',
       url: '/auth/foursquare',
-      clientId: 'MTCEJ3NGW2PNNB31WOSBFDSAD4MTHYVAZ1UKIULXZ2CVFC2K',
+      clientId: clientIds.foursquare,
       redirectUri: window.location.origin,
       authorizationEndpoint: 'https://foursquare.com/oauth2/authenticate'
     });

@@ -8,7 +8,7 @@
     "url" : "https://github.com/leviathantech/mean-scaffold.git"
   },
   "scripts": {
-    "test": "grunt test",
+    "test": "grunt test"
   },
   "engines": {
     "node": "0.10.x",
